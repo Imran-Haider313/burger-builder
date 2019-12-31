@@ -10,7 +10,6 @@ class NewPost extends Component {
   };
 
   handleSubmit = () => {
-    console.log("clicked");
     const post = {
       title: this.state.title,
       body: this.state.content,
@@ -19,7 +18,7 @@ class NewPost extends Component {
     axios
       .post("https://jsonplaceholder.typicode.com/posts/", post)
       .then(response => {
-        console.log(response);
+        this.props.history.replace("/posts");
       });
   };
   render() {
